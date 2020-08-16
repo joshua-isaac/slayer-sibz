@@ -1,7 +1,11 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
+
 module.exports = {
   siteMetadata: {
     title: `Slayer Sibz`,
-    description: `A custom starter template equipped with common tools and plugins.`,
+    description: `Fashion Blog`,
     author: `@sibelrafailov`,
   },
   plugins: [
@@ -14,6 +18,22 @@ module.exports = {
     //     anonymize: true,
     //   },
     // },
+    // WordPress Config
+    {
+      resolve: `gatsby-source-wordpress-experimental`,
+      options: {
+        url: `${process.env.GATSBY_WP_URL}/graphql`,
+      },
+    },
+    // Google Fonts
+    {
+      resolve: "gatsby-plugin-web-font-loader",
+      options: {
+        google: {
+          families: ["Poppins:800", "Montserrat:400"],
+        },
+      },
+    },
     // SEO Component
     `gatsby-plugin-react-helmet`,
     // SASS
