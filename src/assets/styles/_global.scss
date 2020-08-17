@@ -1,3 +1,6 @@
+$black: #000;
+$white: #fff;
+
 html {
   box-sizing: border-box;
   font-size: 17px;
@@ -18,7 +21,6 @@ ul {
   font-weight: normal;
   font-family: "Montserrat", sans-serif;
 }
-
 h1,
 h2,
 h3,
@@ -52,6 +54,10 @@ h5 {
 
 h6 {
   font-size: 18px;
+}
+
+p {
+  line-height: 1.75;
 }
 
 ol,

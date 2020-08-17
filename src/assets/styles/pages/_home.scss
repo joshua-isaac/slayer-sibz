@@ -1,0 +1,88 @@
+.home__articles {
+  .article__wrapper {
+    article {
+      margin-bottom: 60px;
+      .article__content {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @media (max-width: 991px) {
+          background-color: #eee;
+          padding-bottom: 48px;
+          padding: 25px 25px 48px 25px;
+        }
+        a {
+          text-decoration: none;
+        }
+        .article__title {
+          letter-spacing: 1.5px;
+          font-size: 24px;
+          margin-bottom: 8px;
+          text-align: center;
+          @media (max-width: 991px) {
+            margin-top: 0;
+          }
+          a {
+            color: $black;
+            text-decoration: none;
+            text-transform: uppercase;
+          }
+        }
+        .article__date-cat {
+          margin-bottom: 10px;
+          font-size: 14px;
+          text-transform: uppercase;
+          color: darkgrey;
+          a {
+            font-size: 14px;
+            color: $black;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+          }
+        }
+        .article__divider {
+          width: 80px;
+          height: 5px;
+          background-color: $black;
+          margin: 10px 0 24px 0;
+        }
+        .article__excerpt {
+          text-align: center;
+          max-width: 450px;
+        }
+        .article__link {
+          margin-top: 40px;
+          a {
+            font-family: "Poppins", sans-serif;
+            background-color: $black;
+            color: $white;
+            text-transform: uppercase;
+            padding: 12px 40px;
+            text-decoration: none;
+            border: 2px solid $black;
+            transition: 0.3s ease;
+            letter-spacing: 1.5px;
+            font-size: 14px;
+            &:hover {
+              background-color: $white;
+              color: $black;
+              @media (max-width: 991px) {
+                background-color: #eee;
+              }
+            }
+          }
+        }
+      }
+    }
+    .article__image-right {
+      @media (max-width: 991px) {
+        .col-lg-6:first-child {
+          order: 2;
+        }
+      }
+    }
+  }
+}

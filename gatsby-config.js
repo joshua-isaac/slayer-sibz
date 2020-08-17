@@ -30,7 +30,7 @@ module.exports = {
       resolve: "gatsby-plugin-web-font-loader",
       options: {
         google: {
-          families: ["Poppins:800", "Montserrat:400"],
+          families: ["Poppins:800", "Montserrat:400,600"],
         },
       },
     },
