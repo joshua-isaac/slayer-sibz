@@ -23,6 +23,13 @@ module.exports = {
     //     anonymize: true,
     //   },
     // },
+    // Instagram Config
+    {
+      resolve: `gatsby-source-instagram`,
+      options: {
+        username: `34931411`,
+      },
+    },
     // WordPress Config
     {
       resolve: `gatsby-source-wordpress-experimental`,

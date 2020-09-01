@@ -1,13 +1,25 @@
 // create single post & category page templates
+const { paginate } = require("gatsby-awesome-pagination")
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
 
   const result = await graphql(`
     {
-      categories: allWpCategory {
-        edges {
-          node {
-            slug
+      categories: allWpPost {
+        group(field: categories___nodes___name) {
+          fieldValue
+          edges {
+            node {
+              slug
+              categories {
+                nodes {
+                  slug
+                }
+              }
+              title
+              date(formatString: "MM . DD . YYYY")
+            }
           }
         }
       }
@@ -41,11 +53,17 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-  result.data.categories.edges.forEach(category => {
-    createPage({
-      path: `category/${category.node.slug}`,
+  result.data.categories.group.forEach(category => {
+    console.log(category)
+    const str = category.fieldValue
+    const slug = str.replace(/\s+/g, "-").toLowerCase()
+    paginate({
+      createPage,
+      items: category.edges,
+      itemsPerPage: 6,
+      pathPrefix: `category/${slug}`,
       component: categoryTemplate,
-      context: { slug: category.node.slug },
+      context: { slug: slug, category: category.fieldValue },
     })
   })
 }

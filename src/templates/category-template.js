@@ -3,14 +3,17 @@ import Layout from "../components/layout"
 import { graphql, Link } from "gatsby"
 import { Row, Col } from "react-bootstrap"
 import BackgroundImage from "gatsby-background-image"
+import Pager from "../components/pager"
 
 export const query = graphql`
-  query($slug: String!) {
-    wpCategory(slug: { eq: $slug }) {
-      name
-      slug
-      posts {
-        nodes {
+  query($slug: String!, $skip: Int!, $limit: Int!) {
+    allWpPost(
+      skip: $skip
+      limit: $limit
+      filter: { categories: { nodes: { elemMatch: { slug: { eq: $slug } } } } }
+    ) {
+      edges {
+        node {
           title
           slug
           date(formatString: "MM . DD . YYYY")
@@ -32,15 +35,17 @@ export const query = graphql`
 `
 
 const CategoryTemplate = ({ data, pageContext }) => {
-  const category_slug = data.wpCategory.slug
+  // const category_slug = data.allWpCategory.edges[0].node.slug
+  console.log(data)
   console.log(pageContext)
+  const posts = data.allWpPost.edges
   return (
     <Layout>
       <div className="category__container">
         <div className="main-wrapper">
-          <h3 className="category__title">{data.wpCategory.name}</h3>
+          <p className="category__title">// {pageContext.category}</p>
           <Row>
-            {data.wpCategory.posts.nodes.map((post, i) => {
+            {posts.map((post, i) => {
               if (i % 6 === 0) {
                 return (
                   <Col
@@ -50,12 +55,12 @@ const CategoryTemplate = ({ data, pageContext }) => {
                     className="category__block-1-container"
                   >
                     <div className="category__block-1">
-                      <Link to={`/${category_slug}/${post.slug}`}>
+                      <Link to={`/${pageContext.slug}/${post.node.slug}`}>
                         <BackgroundImage
                           className="category__block-1-image"
                           fluid={
-                            post.featuredImage.node.localFile.childImageSharp
-                              .fluid
+                            post.node.featuredImage.node.localFile
+                              .childImageSharp.fluid
                           }
                         >
                           <div className="category__block-overlay">
@@ -81,12 +86,12 @@ const CategoryTemplate = ({ data, pageContext }) => {
                     className="category__block-2-container"
                   >
                     <div className="category__block-2">
-                      <Link to={`/${category_slug}/${post.slug}`}>
+                      <Link to={`/${pageContext.slug}/${post.node.slug}`}>
                         <BackgroundImage
                           className="category__block-2-image"
                           fluid={
-                            post.featuredImage.node.localFile.childImageSharp
-                              .fluid
+                            post.node.featuredImage.node.localFile
+                              .childImageSharp.fluid
                           }
                         >
                           <div className="category__block-overlay">
@@ -112,12 +117,12 @@ const CategoryTemplate = ({ data, pageContext }) => {
                     className="category__block-3-container"
                   >
                     <div className="category__block-3">
-                      <Link to={`/${category_slug}/${post.slug}`}>
+                      <Link to={`/${pageContext.slug}/${post.node.slug}`}>
                         <BackgroundImage
                           className="category__block-3-image"
                           fluid={
-                            post.featuredImage.node.localFile.childImageSharp
-                              .fluid
+                            post.node.featuredImage.node.localFile
+                              .childImageSharp.fluid
                           }
                         >
                           <div className="category__block-overlay">
@@ -143,12 +148,12 @@ const CategoryTemplate = ({ data, pageContext }) => {
                     className="category__block-4-container"
                   >
                     <div className="category__block-4">
-                      <Link to={`/${category_slug}/${post.slug}`}>
+                      <Link to={`/${pageContext.slug}/${post.node.slug}`}>
                         <BackgroundImage
                           className="category__block-4-image"
                           fluid={
-                            post.featuredImage.node.localFile.childImageSharp
-                              .fluid
+                            post.node.featuredImage.node.localFile
+                              .childImageSharp.fluid
                           }
                         >
                           <div className="category__block-overlay">
@@ -174,12 +179,12 @@ const CategoryTemplate = ({ data, pageContext }) => {
                     className="category__block-5-container"
                   >
                     <div className="category__block-5">
-                      <Link to={`/${category_slug}/${post.slug}`}>
+                      <Link to={`/${pageContext.slug}/${post.node.slug}`}>
                         <BackgroundImage
                           className="category__block-5-image"
                           fluid={
-                            post.featuredImage.node.localFile.childImageSharp
-                              .fluid
+                            post.node.featuredImage.node.localFile
+                              .childImageSharp.fluid
                           }
                         >
                           <div className="category__block-overlay">
@@ -205,12 +210,12 @@ const CategoryTemplate = ({ data, pageContext }) => {
                     className="category__block-6-container"
                   >
                     <div className="category__block-6">
-                      <Link to={`/${category_slug}/${post.slug}`}>
+                      <Link to={`/${pageContext.slug}/${post.node.slug}`}>
                         <BackgroundImage
                           className="category__block-6-image"
                           fluid={
-                            post.featuredImage.node.localFile.childImageSharp
-                              .fluid
+                            post.node.featuredImage.node.localFile
+                              .childImageSharp.fluid
                           }
                         >
                           <div className="category__block-overlay">
@@ -229,6 +234,7 @@ const CategoryTemplate = ({ data, pageContext }) => {
               }
             })}
           </Row>
+          <Pager pageContext={pageContext} />
         </div>
       </div>
     </Layout>

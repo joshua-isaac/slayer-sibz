@@ -1,9 +1,11 @@
 .header {
   text-align: center;
-  padding: 25px 0;
+  padding: 25px 0 0 0;
+  margin-bottom: 25px;
   .header__container {
     display: flex;
     flex-direction: column;
+    // border-bottom: 1px solid $black;
     padding: 0 15px;
     @media (max-width: 575px) {
       flex-direction: row;
@@ -44,9 +46,9 @@
         display: flex;
         justify-content: center;
         li {
-          margin: 0 16px;
+          margin: 0 14px;
           a {
-            font-size: 16px;
+            font-size: 14px;
             color: $black;
             text-transform: uppercase;
             letter-spacing: 1px;

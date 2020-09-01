@@ -1,87 +1,28 @@
 import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
-import { Row, Col } from "react-bootstrap"
-import Img from "gatsby-image"
-import BackgroundImage from "gatsby-background-image"
+
+import LatestLifestyle from "../components/latestLifestyle"
+import LatestOutfits from "../components/latestOutfits"
+import LatestVintage from "../components/latestVintage"
+import Jumbotron from "../components/jumbotron"
+import InstagramBlock from "../components/instagramBlock"
 
 const IndexPage = () => {
   const data = useStaticQuery(HOME_QUERY)
   console.log(data)
-  const featuredPost = data.featuredPost.edges[0]
-  const latestVintagePosts = data.lastestVintage.edges
-  const latestOutfitsPosts = data.lastestOutfits.edges
-  const latestLifestylePosts = data.lastestLifestyle.edges
+
   return (
     <Layout>
-      {" "}
       <section className="home__articles">
         <div className="main-wrapper">
-          <div className="featured__article">
-            <BackgroundImage
-              className="featured__article-image"
-              fluid={
-                featuredPost.node.featuredImage.node.localFile.childImageSharp
-                  .fluid
-              }
-            />
-          </div>
-          <div className="lifestyle__articles">
-            {latestLifestylePosts.length > 0 ? (
-              <>
-                <div className="title">
-                  <h5>Lifestyle</h5>
-                </div>
-                <Row>
-                  {latestLifestylePosts.map((post, i) => (
-                    <Col lg={4}>
-                      <p>post</p>
-                    </Col>
-                  ))}
-                </Row>
-              </>
-            ) : (
-              <p>no posts</p>
-            )}
-          </div>
-          <div className="outfits__articles">
-            {latestOutfitsPosts.length > 0 ? (
-              <>
-                <div className="title">
-                  <h5>Outfits</h5>
-                </div>
-                <Row>
-                  {latestOutfitsPosts.map((post, i) => (
-                    <Col lg={4}>
-                      <p>post</p>
-                    </Col>
-                  ))}
-                </Row>
-              </>
-            ) : (
-              <p>no posts</p>
-            )}
-          </div>
-          <div className="vitnage__articles">
-            {latestVintagePosts.length > 0 ? (
-              <>
-                <div className="title">
-                  <h5>Vintage</h5>
-                </div>
-                <Row>
-                  {latestVintagePosts.map((post, i) => (
-                    <Col lg={4}>
-                      <p>post</p>
-                    </Col>
-                  ))}
-                </Row>
-              </>
-            ) : (
-              <p>no posts</p>
-            )}
-          </div>
+          <Jumbotron featuredPost={data.featuredPost.Home_ACF.featuredPost} />
+          <LatestOutfits articles={data.latestOutfits.edges} />
+          <LatestLifestyle articles={data.latestLifestyle.edges} />
+          <LatestVintage articles={data.latestVintage.edges} />
         </div>
       </section>
+      <InstagramBlock />
     </Layout>
   )
 }
@@ -90,32 +31,36 @@ export default IndexPage
 
 export const HOME_QUERY = graphql`
   query {
-    featuredPost: allWpPost(limit: 1, sort: { fields: date, order: DESC }) {
-      edges {
-        node {
-          title
-          date(formatString: "MM . DD . YYYY")
-          featuredImage {
-            node {
-              localFile {
-                childImageSharp {
-                  fluid(quality: 90, maxWidth: 1000, maxHeight: 500) {
-                    ...GatsbyImageSharpFluid_withWebp
+    featuredPost: wpPage(isFrontPage: { eq: true }) {
+      Home_ACF {
+        __typename
+        featuredPost {
+          __typename
+          ... on WpPost {
+            title
+            slug
+            categories {
+              nodes {
+                slug
+              }
+            }
+            date(formatString: "MM . DD . YYYY")
+            featuredImage {
+              node {
+                localFile {
+                  childImageSharp {
+                    fluid(maxWidth: 1000, maxHeight: 600, quality: 90) {
+                      ...GatsbyImageSharpFluid_withWebp
+                    }
                   }
                 }
               }
             }
           }
-          categories {
-            nodes {
-              slug
-            }
-          }
-          slug
         }
       }
     }
-    lastestOutfits: allWpPost(
+    latestOutfits: allWpPost(
       limit: 3
       filter: {
         categories: { nodes: { elemMatch: { slug: { eq: "outfits" } } } }
@@ -125,10 +70,28 @@ export const HOME_QUERY = graphql`
       edges {
         node {
           title
+          categories {
+            nodes {
+              slug
+            }
+          }
+          date(formatString: "MM . DD . YYYY")
+          slug
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1000, maxHeight: 550, quality: 90) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
-    lastestVintage: allWpPost(
+    latestVintage: allWpPost(
       limit: 3
       filter: {
         categories: { nodes: { elemMatch: { slug: { eq: "vintage" } } } }
@@ -138,10 +101,28 @@ export const HOME_QUERY = graphql`
       edges {
         node {
           title
+          categories {
+            nodes {
+              slug
+            }
+          }
+          date(formatString: "MM . DD . YYYY")
+          slug
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1000, maxHeight: 550, quality: 90) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
-    lastestLifestyle: allWpPost(
+    latestLifestyle: allWpPost(
       limit: 3
       filter: {
         categories: { nodes: { elemMatch: { slug: { eq: "lifestyle" } } } }
@@ -151,6 +132,24 @@ export const HOME_QUERY = graphql`
       edges {
         node {
           title
+          categories {
+            nodes {
+              slug
+            }
+          }
+          date(formatString: "MM . DD . YYYY")
+          slug
+          featuredImage {
+            node {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 1000, maxHeight: 550, quality: 90) {
+                    ...GatsbyImageSharpFluid_withWebp
+                  }
+                }
+              }
+            }
+          }
         }
       }
     }
