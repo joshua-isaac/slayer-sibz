@@ -7,6 +7,11 @@ module.exports = {
     title: `Slayer Sibz`,
     description: `Fashion Blog`,
     author: `@sibelrafailov`,
+    twitter: `https://twitter.com/gottalovesibel`,
+    instagram: `https://www.instagram.com/sibelrafailov/`,
+    facebook: ``,
+    pinterest: ``,
+    tumblr: ``,
   },
   plugins: [
     // Google Analytics

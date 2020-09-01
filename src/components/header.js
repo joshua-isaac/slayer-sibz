@@ -1,8 +1,5 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import BarbWire from "../assets/images/barb-wire.svg"
-import BarbWireTablet from "../assets/images/barb-wire-tablet.svg"
-import BarbWireMobile from "../assets/images/barb-wire-mobile.svg"
 import { FaBars } from "react-icons/fa"
 
 const Header = () => {
@@ -31,9 +28,6 @@ const Header = () => {
           <FaBars />
         </div>
       </div>
-      <img className="header__barb-wire" src={BarbWire} alt="" />
-      <img className="header__barb-wire-tablet" src={BarbWireTablet} alt="" />
-      <img className="header__barb-wire-mobile" src={BarbWireMobile} alt="" />
     </header>
   )
 }
