@@ -35,7 +35,7 @@ const LatestLifestyle = ({ articles }) => {
 
           <div className="category__link">
             <Link to={`/category/lifestyle`}>
-              See All Lifestyle <BsArrowRight />
+              <span>See All Lifestyle</span> <BsArrowRight />
             </Link>
           </div>
         </>

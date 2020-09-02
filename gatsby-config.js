@@ -9,9 +9,9 @@ module.exports = {
     author: `@sibelrafailov`,
     twitter: `https://twitter.com/gottalovesibel`,
     instagram: `https://www.instagram.com/sibelrafailov/`,
-    facebook: ``,
-    pinterest: ``,
-    tumblr: ``,
+    facebook: `https://www.facebook.com/`,
+    pinterest: `https://www.pinterest.ca/`,
+    tumblr: `https://www.tumblr.com/`,
   },
   plugins: [
     // Google Analytics

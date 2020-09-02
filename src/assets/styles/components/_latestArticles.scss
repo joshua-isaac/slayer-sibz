@@ -11,6 +11,12 @@
     }
   }
   .article__card {
+    transition: 0.3s ease;
+    &:hover {
+      -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+      -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
+      box-shadow: 2px 2px 12px 0px rgba(0, 0, 0, 0.25);
+    }
     a {
       text-decoration: none;
       color: $black;
@@ -38,7 +44,6 @@
       padding: 0 15px;
       font-size: 16px;
       text-transform: uppercase;
-      // font-family: "Montserrat";
     }
     .line {
       width: 100%;
@@ -55,10 +60,16 @@
       text-transform: uppercase;
       letter-spacing: 1px;
       text-decoration: none;
+      span {
+        transition: 0.3s ease;
+        &:hover {
+          border-bottom: 1px solid $black;
+        }
+      }
       svg {
         font-size: 18px;
         position: relative;
-        top: -1px;
+        top: -2px;
       }
     }
   }

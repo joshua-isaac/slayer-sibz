@@ -3,6 +3,7 @@ import Layout from "../components/layout"
 import { graphql, Link } from "gatsby"
 import { Row, Col } from "react-bootstrap"
 import BackgroundImage from "gatsby-background-image"
+import ArticleCard from "../components/articleCard"
 import Pager from "../components/pager"
 
 export const query = graphql`
@@ -11,17 +12,29 @@ export const query = graphql`
       skip: $skip
       limit: $limit
       filter: { categories: { nodes: { elemMatch: { slug: { eq: $slug } } } } }
+      sort: { fields: date, order: DESC }
     ) {
       edges {
         node {
           title
           slug
+          categories {
+            nodes {
+              slug
+            }
+          }
           date(formatString: "MM . DD . YYYY")
           featuredImage {
             node {
               localFile {
                 childImageSharp {
-                  fluid(cropFocus: CENTER, fit: COVER, quality: 90) {
+                  fluid(
+                    maxWidth: 1024
+                    maxHeight: 1024
+                    quality: 90
+                    cropFocus: CENTER
+                    fit: COVER
+                  ) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
@@ -39,199 +52,34 @@ const CategoryTemplate = ({ data, pageContext }) => {
   console.log(data)
   console.log(pageContext)
   const posts = data.allWpPost.edges
+
   return (
     <Layout>
       <div className="category__container">
         <div className="main-wrapper">
-          <p className="category__title">// {pageContext.category}</p>
+          <div className="title">
+            <div className="line"></div>
+            <h5>{pageContext.category}</h5>
+            <div className="line"></div>
+          </div>
           <Row>
             {posts.map((post, i) => {
-              if (i % 6 === 0) {
-                return (
-                  <Col
-                    lg={4}
-                    md={4}
-                    key={i}
-                    className="category__block-1-container"
-                  >
-                    <div className="category__block-1">
-                      <Link to={`/${pageContext.slug}/${post.node.slug}`}>
-                        <BackgroundImage
-                          className="category__block-1-image"
-                          fluid={
-                            post.node.featuredImage.node.localFile
-                              .childImageSharp.fluid
-                          }
-                        >
-                          <div className="category__block-overlay">
-                            <h5 className="category__block-overlay-title">
-                              {post.title}
-                            </h5>
-                            <p className="category__block-overlay-date">
-                              {post.date}
-                            </p>
-                          </div>
-                        </BackgroundImage>
-                      </Link>
-                    </div>
-                  </Col>
-                )
-              }
-              if (i % 6 === 1) {
-                return (
-                  <Col
-                    lg={4}
-                    md={4}
-                    key={i}
-                    className="category__block-2-container"
-                  >
-                    <div className="category__block-2">
-                      <Link to={`/${pageContext.slug}/${post.node.slug}`}>
-                        <BackgroundImage
-                          className="category__block-2-image"
-                          fluid={
-                            post.node.featuredImage.node.localFile
-                              .childImageSharp.fluid
-                          }
-                        >
-                          <div className="category__block-overlay">
-                            <h5 className="category__block-overlay-title">
-                              {post.title}
-                            </h5>
-                            <p className="category__block-overlay-date">
-                              {post.date}
-                            </p>
-                          </div>
-                        </BackgroundImage>
-                      </Link>
-                    </div>
-                  </Col>
-                )
-              }
-              if (i % 6 === 2) {
-                return (
-                  <Col
-                    lg={4}
-                    md={4}
-                    key={i}
-                    className="category__block-3-container"
-                  >
-                    <div className="category__block-3">
-                      <Link to={`/${pageContext.slug}/${post.node.slug}`}>
-                        <BackgroundImage
-                          className="category__block-3-image"
-                          fluid={
-                            post.node.featuredImage.node.localFile
-                              .childImageSharp.fluid
-                          }
-                        >
-                          <div className="category__block-overlay">
-                            <h5 className="category__block-overlay-title">
-                              {post.title}
-                            </h5>
-                            <p className="category__block-overlay-date">
-                              {post.date}
-                            </p>
-                          </div>
-                        </BackgroundImage>
-                      </Link>
-                    </div>
-                  </Col>
-                )
-              }
-              if (i % 6 === 3) {
-                return (
-                  <Col
-                    lg={4}
-                    md={4}
-                    key={i}
-                    className="category__block-4-container"
-                  >
-                    <div className="category__block-4">
-                      <Link to={`/${pageContext.slug}/${post.node.slug}`}>
-                        <BackgroundImage
-                          className="category__block-4-image"
-                          fluid={
-                            post.node.featuredImage.node.localFile
-                              .childImageSharp.fluid
-                          }
-                        >
-                          <div className="category__block-overlay">
-                            <h5 className="category__block-overlay-title">
-                              {post.title}
-                            </h5>
-                            <p className="category__block-overlay-date">
-                              {post.date}
-                            </p>
-                          </div>
-                        </BackgroundImage>
-                      </Link>
-                    </div>
-                  </Col>
-                )
-              }
-              if (i % 6 === 4) {
-                return (
-                  <Col
-                    lg={4}
-                    md={4}
-                    key={i}
-                    className="category__block-5-container"
-                  >
-                    <div className="category__block-5">
-                      <Link to={`/${pageContext.slug}/${post.node.slug}`}>
-                        <BackgroundImage
-                          className="category__block-5-image"
-                          fluid={
-                            post.node.featuredImage.node.localFile
-                              .childImageSharp.fluid
-                          }
-                        >
-                          <div className="category__block-overlay">
-                            <h5 className="category__block-overlay-title">
-                              {post.title}
-                            </h5>
-                            <p className="category__block-overlay-date">
-                              {post.date}
-                            </p>
-                          </div>
-                        </BackgroundImage>
-                      </Link>
-                    </div>
-                  </Col>
-                )
-              }
-              if (i % 6 === 5) {
-                return (
-                  <Col
-                    lg={4}
-                    md={4}
-                    key={i}
-                    className="category__block-6-container"
-                  >
-                    <div className="category__block-6">
-                      <Link to={`/${pageContext.slug}/${post.node.slug}`}>
-                        <BackgroundImage
-                          className="category__block-6-image"
-                          fluid={
-                            post.node.featuredImage.node.localFile
-                              .childImageSharp.fluid
-                          }
-                        >
-                          <div className="category__block-overlay">
-                            <h5 className="category__block-overlay-title">
-                              {post.title}
-                            </h5>
-                            <p className="category__block-overlay-date">
-                              {post.date}
-                            </p>
-                          </div>
-                        </BackgroundImage>
-                      </Link>
-                    </div>
-                  </Col>
-                )
-              }
+              const slug = post.node.slug
+              const categorySlug = post.node.categories.nodes[0].slug
+              return (
+                <Col lg={4} md={6} sm={6} key={i}>
+                  <ArticleCard
+                    title={post.node.title}
+                    image={
+                      post.node.featuredImage.node.localFile.childImageSharp
+                        .fluid
+                    }
+                    date={post.node.date}
+                    slug={`${slug}`}
+                    categorySlug={`${categorySlug}`}
+                  />
+                </Col>
+              )
             })}
           </Row>
           <Pager pageContext={pageContext} />

@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { Row, Col } from "react-bootstrap"
 import Img from "gatsby-image"
+import { BsArrowRight } from "react-icons/bs"
 
 const InstagramBlock = () => {
   const data = useStaticQuery(INSTAGRAM_QUERY)
@@ -30,13 +31,14 @@ const InstagramBlock = () => {
             ))}
           </Row>
         </div>
-        <div class="instagram__block-btn">
+        <div className="instagram__block-btn">
           <a
             href="https://www.instagram.com/sibelrafailov/"
             target="_blank"
             rel="noreferrer noopener"
           >
             Follow Me
+            <BsArrowRight />
           </a>
         </div>
       </div>
@@ -48,13 +50,19 @@ export default InstagramBlock
 
 const INSTAGRAM_QUERY = graphql`
   query {
-    allInstaNode(limit: 8, sort: { order: DESC, fields: timestamp }) {
+    allInstaNode(limit: 4, sort: { order: DESC, fields: timestamp }) {
       edges {
         node {
           id
           localFile {
             childImageSharp {
-              fluid(maxWidth: 800, maxHeight: 800, quality: 90) {
+              fluid(
+                maxWidth: 800
+                maxHeight: 800
+                quality: 90
+                cropFocus: CENTER
+                fit: COVER
+              ) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }

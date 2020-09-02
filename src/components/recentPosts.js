@@ -2,6 +2,7 @@ import React from "react"
 import { graphql, useStaticQuery, Link } from "gatsby"
 import Img from "gatsby-image"
 import { Row, Col } from "react-bootstrap"
+import { BsArrowRight } from "react-icons/bs"
 
 const RecentPosts = () => {
   const data = useStaticQuery(RECENT_POSTS_QUERY)
@@ -21,13 +22,20 @@ const RecentPosts = () => {
                 }
               />
             </Link>
+            {/* <div className="recent__post-link">
+              <Link
+                to={`/${post.node.categories.nodes[0].slug}/${post.node.slug}`}
+              >
+                View <BsArrowRight />
+              </Link>
+            </div> */}
           </div>
         ))}
       </div>
-      <div class="recent__posts-wrapper-mobile">
+      <div className="recent__posts-wrapper-mobile">
         <Row>
           {posts.map((post, i) => (
-            <Col md={6} sm={6}>
+            <Col md={12} sm={6} key={i}>
               <div className="recent__post" key={i}>
                 <Link
                   to={`/${post.node.categories.nodes[0].slug}/${post.node.slug}`}
@@ -39,6 +47,13 @@ const RecentPosts = () => {
                     }
                   />
                 </Link>
+                <div className="recent__post-link">
+                  <Link
+                    to={`/${post.node.categories.nodes[0].slug}/${post.node.slug}`}
+                  >
+                    Read More <BsArrowRight />
+                  </Link>
+                </div>
               </div>
             </Col>
           ))}
@@ -69,8 +84,8 @@ export const RECENT_POSTS_QUERY = graphql`
                     cropFocus: CENTER
                     fit: COVER
                     quality: 90
-                    maxWidth: 500
-                    maxHeight: 500
+                    maxWidth: 1000
+                    maxHeight: 1000
                   ) {
                     ...GatsbyImageSharpFluid_withWebp
                   }

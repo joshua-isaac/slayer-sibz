@@ -2,60 +2,41 @@ import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import { FaFacebookF, FaTwitter, FaPinterestP, FaTumblr } from "react-icons/fa"
 import { GrInstagram } from "react-icons/gr"
+import { BsArrowDown } from "react-icons/bs"
 
 const Socials = () => {
   const data = useStaticQuery(SOCIALS_QUERY)
   console.log(data)
   return (
     <div className="socials__container">
-      <h5 className="socials__title">Socialize</h5>
-      <ul className="socials__list">
-        <li>
-          <a
-            href={data.site.siteMetadata.instagram}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <GrInstagram />
-          </a>
-        </li>
-        <li>
-          <a
-            href={data.site.siteMetadata.facebook}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <FaFacebookF />
-          </a>
-        </li>
-        <li>
-          <a
-            href={data.site.siteMetadata.twitter}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <FaTwitter />
-          </a>
-        </li>
-        <li>
-          <a
-            href={data.site.siteMetadata.pinterest}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <FaPinterestP />
-          </a>
-        </li>
-        <li>
-          <a
-            href={data.site.siteMetadata.tumblr}
-            target="_blank"
-            rel="noreferrer noopener"
-          >
-            <FaTumblr />
-          </a>
-        </li>
-      </ul>
+      <p className="title">
+        Let's Connect <BsArrowDown />
+      </p>
+      {data.site.siteMetadata.instagram && (
+        <a class="instagram" href={data.site.siteMetadata.instagram}>
+          <GrInstagram /> <span>Instagram</span>
+        </a>
+      )}
+      {data.site.siteMetadata.twitter && (
+        <a className="twitter" href={data.site.siteMetadata.twitter}>
+          <FaTwitter /> <span>Twitter</span>
+        </a>
+      )}
+      {data.site.siteMetadata.facebook && (
+        <a className="facebook" href={data.site.siteMetadata.facebook}>
+          <FaFacebookF /> <span>Facebook</span>
+        </a>
+      )}
+      {data.site.siteMetadata.pinterest && (
+        <a className="pinterest" href={data.site.siteMetadata.pinterest}>
+          <FaPinterestP /> <span>Pinterest</span>
+        </a>
+      )}
+      {data.site.siteMetadata.tumblr && (
+        <a className="tumblr" href={data.site.siteMetadata.tumblr}>
+          <FaTumblr /> <span>Tumblr</span>
+        </a>
+      )}
     </div>
   )
 }

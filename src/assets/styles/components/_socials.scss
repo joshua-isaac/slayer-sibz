@@ -1,39 +1,42 @@
 .socials__container {
-  border: 5px solid $black;
-  padding: 30px;
-  transition: 0.3s ease;
-
-  @media (max-width: 1024px) {
-    padding: 20px 15px;
-  }
-
-  .socials__title {
+  margin-top: 54px;
+  .title {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-align: center;
-    margin-bottom: 25px;
-    color: darkgrey;
+    margin-bottom: 8px;
+    font-size: 14px;
   }
 
-  .socials__list {
-    display: flex;
-    justify-content: center;
-    li {
-      margin: 0 10px;
-      transition: 0.3s ease;
-      @media (max-width: 1024px) {
-        margin: 0 8px;
-      }
-      a {
-        color: $black;
-        svg {
-          font-size: 24px;
-          transition: 0.3s ease;
-          @media (max-width: 1024px) {
-            font-size: 20px;
-          }
-        }
-      }
+  .instagram,
+  .facebook,
+  .pinterest,
+  .tumblr,
+  .twitter {
+    margin-bottom: 8px;
+    display: block;
+    border: 1px solid $black;
+    color: $black;
+    padding: 8px;
+    font-size: 10px;
+    text-align: center;
+    text-decoration: none;
+    transition: 0.3s ease;
+    letter-spacing: 1.5px;
+    &:hover {
+      color: $white;
+      background-color: $black;
     }
+    svg {
+      position: relative;
+      top: -1px;
+      margin-right: 5px;
+    }
+    span {
+      text-transform: uppercase;
+    }
+  }
+  .tumblr {
+    margin-bottom: 0;
   }
 }

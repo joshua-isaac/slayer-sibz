@@ -54,13 +54,12 @@ exports.createPages = async ({ graphql, actions }) => {
   })
 
   result.data.categories.group.forEach(category => {
-    console.log(category)
     const str = category.fieldValue
     const slug = str.replace(/\s+/g, "-").toLowerCase()
     paginate({
       createPage,
       items: category.edges,
-      itemsPerPage: 6,
+      itemsPerPage: 9,
       pathPrefix: `category/${slug}`,
       component: categoryTemplate,
       context: { slug: slug, category: category.fieldValue },

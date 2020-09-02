@@ -49,7 +49,13 @@ export const HOME_QUERY = graphql`
               node {
                 localFile {
                   childImageSharp {
-                    fluid(maxWidth: 1000, maxHeight: 600, quality: 90) {
+                    fluid(
+                      maxWidth: 2048
+                      maxHeight: 2048
+                      quality: 90
+                      cropFocus: CENTER
+                      fit: COVER
+                    ) {
                       ...GatsbyImageSharpFluid_withWebp
                     }
                   }
@@ -81,7 +87,13 @@ export const HOME_QUERY = graphql`
             node {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 1000, maxHeight: 550, quality: 90) {
+                  fluid(
+                    maxWidth: 1024
+                    maxHeight: 1024
+                    quality: 90
+                    cropFocus: CENTER
+                    fit: COVER
+                  ) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
@@ -112,7 +124,13 @@ export const HOME_QUERY = graphql`
             node {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 1000, maxHeight: 550, quality: 90) {
+                  fluid(
+                    maxWidth: 1024
+                    maxHeight: 1024
+                    quality: 90
+                    cropFocus: CENTER
+                    fit: COVER
+                  ) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
@@ -143,7 +161,13 @@ export const HOME_QUERY = graphql`
             node {
               localFile {
                 childImageSharp {
-                  fluid(maxWidth: 1000, maxHeight: 550, quality: 90) {
+                  fluid(
+                    maxWidth: 1024
+                    maxHeight: 1024
+                    quality: 90
+                    cropFocus: CENTER
+                    fit: COVER
+                  ) {
                     ...GatsbyImageSharpFluid_withWebp
                   }
                 }
