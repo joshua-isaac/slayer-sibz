@@ -6,7 +6,6 @@ import LatestLifestyle from "../components/latestLifestyle"
 import LatestOutfits from "../components/latestOutfits"
 import LatestVintage from "../components/latestVintage"
 import Jumbotron from "../components/jumbotron"
-import InstagramBlock from "../components/instagramBlock"
 
 const IndexPage = () => {
   const data = useStaticQuery(HOME_QUERY)
@@ -18,11 +17,10 @@ const IndexPage = () => {
         <div className="main-wrapper">
           <Jumbotron featuredPost={data.featuredPost.Home_ACF.featuredPost} />
           <LatestOutfits articles={data.latestOutfits.edges} />
-          <LatestLifestyle articles={data.latestLifestyle.edges} />
           <LatestVintage articles={data.latestVintage.edges} />
+          <LatestLifestyle articles={data.latestLifestyle.edges} />
         </div>
       </section>
-      <InstagramBlock />
     </Layout>
   )
 }
@@ -67,7 +65,7 @@ export const HOME_QUERY = graphql`
       }
     }
     latestOutfits: allWpPost(
-      limit: 3
+      limit: 2
       filter: {
         categories: { nodes: { elemMatch: { slug: { eq: "outfits" } } } }
       }
@@ -104,7 +102,7 @@ export const HOME_QUERY = graphql`
       }
     }
     latestVintage: allWpPost(
-      limit: 3
+      limit: 2
       filter: {
         categories: { nodes: { elemMatch: { slug: { eq: "vintage" } } } }
       }
@@ -141,7 +139,7 @@ export const HOME_QUERY = graphql`
       }
     }
     latestLifestyle: allWpPost(
-      limit: 3
+      limit: 2
       filter: {
         categories: { nodes: { elemMatch: { slug: { eq: "lifestyle" } } } }
       }

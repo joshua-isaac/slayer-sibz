@@ -1,7 +1,68 @@
+.instagram__block {
+  margin-bottom: 80px;
+  .title {
+    display: flex;
+    align-items: center;
+    margin-bottom: 24px;
+    h5 {
+      letter-spacing: 1.5px;
+      padding: 0 15px;
+      font-size: 16px;
+      text-transform: uppercase;
+    }
+    .line {
+      width: 100%;
+      height: 1px;
+      background-color: $black;
+    }
+  }
+  .handle {
+    margin-bottom: 25px;
+    text-align: center;
+    a {
+      font-size: 16px;
+      letter-spacing: 1px;
+      color: $black;
+      text-decoration: none;
+    }
+  }
+  .instagram__block-images {
+    .col-lg-3 {
+      margin-bottom: 15px;
+      padding: 0 8px !important;
+    }
+    .row {
+      padding: 0 8px;
+    }
+    .col-lg-3:nth-child(4),
+    .col-lg-3:nth-child(5),
+    .col-lg-3:nth-child(6),
+    .col-lg-3:nth-child(7) {
+      margin-bottom: 15px !important;
+    }
+  }
+  .instagram__block-btn {
+    text-align: right;
+    margin-top: 5px;
+    a {
+      font-size: 14px;
+      color: $black;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-decoration: none;
+      svg {
+        font-size: 18px;
+        position: relative;
+        top: -1px;
+        margin-left: 3px;
+      }
+    }
+  }
+}
 .footer {
   background-color: $black;
   color: $white;
-  padding: 60px 0 0 0;
+  padding: 25px 0;
   .footer__logo {
     text-align: center;
     a {
@@ -26,6 +87,9 @@
     }
     li {
       margin: 0 8px;
+      @media (max-width: 575px) {
+        margin: 8px 0;
+      }
       a {
         color: $white;
         text-decoration: none;
@@ -47,7 +111,8 @@
   }
   .copyright {
     text-align: center;
-    padding: 15px 0;
+    // padding: 15px 0;
+    opacity: 0.5;
     p {
       font-size: 10px;
       letter-spacing: 1.5px;

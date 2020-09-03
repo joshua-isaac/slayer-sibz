@@ -6,7 +6,6 @@ import Img from "gatsby-image"
 import RecentPosts from "../components/recentPosts"
 import Socials from "../components/socials"
 import ShopDepop from "../components/shopDepop"
-import InstagramBlock from "../components/instagramBlock"
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -133,14 +132,13 @@ const SinglePostTemplate = ({ data }) => {
               </div> */}
             </Col>
             <Col lg={3} md={3}>
-              <div class="single__post-sidebar">
+              <div className="single__post-sidebar">
                 <Socials />
                 <ShopDepop />
                 <RecentPosts />
               </div>
             </Col>
           </Row>
-          <InstagramBlock />
         </div>
       </div>
     </Layout>

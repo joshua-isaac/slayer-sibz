@@ -44,11 +44,15 @@
 
 .header {
   padding: 25px 0;
+  margin-bottom: 40px;
   .header__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     .header__nav-left {
+      ul {
+        justify-content: flex-start;
+      }
       @media (max-width: 991px) {
         display: none;
       }
@@ -73,6 +77,7 @@
     nav {
       ul {
         display: flex;
+        justify-content: flex-end;
         li {
           margin: 0 8px;
           a {
@@ -99,7 +104,7 @@
       text-transform: uppercase;
 
       @media (max-width: 991px) {
-        flex: 1;
+        flex: unset;
         text-align: left;
       }
       a {
@@ -119,11 +124,15 @@
       display: none;
       flex: 1;
       text-align: right;
+      &:hover {
+        cursor: pointer;
+      }
       svg {
         font-size: 24px;
       }
       @media (max-width: 991px) {
         display: block;
+        flex: unset;
       }
     }
   }

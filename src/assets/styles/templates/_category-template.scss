@@ -1,6 +1,6 @@
 .category__container {
+  margin-bottom: 80px;
   .title {
-    margin-top: 40px;
     display: flex;
     align-items: center;
     margin-bottom: 24px;
@@ -32,15 +32,20 @@
       color: $black;
       .article__content {
         background-color: $grey;
-        padding: 20px;
+        padding: 24px 15px;
+        text-align: center;
         h6 {
-          letter-spacing: 1px;
+          font-size: 16px;
+          letter-spacing: 2px;
           color: $black;
           text-transform: uppercase;
         }
         span {
           font-size: 12px;
           color: $black;
+          margin-bottom: 8px;
+          letter-spacing: 1.5px;
+          display: block;
         }
       }
     }

@@ -1,5 +1,5 @@
 require("dotenv").config({
-  path: `.env.${process.env.NODE_ENV}`,
+  path: `.env`,
 })
 
 module.exports = {
@@ -27,7 +27,7 @@ module.exports = {
     {
       resolve: `gatsby-source-instagram`,
       options: {
-        username: `34931411`,
+        username: `${process.env.GATSBY_INSTAGRAM_ID}`,
       },
     },
     // WordPress Config

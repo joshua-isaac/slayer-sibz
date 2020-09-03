@@ -59,7 +59,7 @@ exports.createPages = async ({ graphql, actions }) => {
     paginate({
       createPage,
       items: category.edges,
-      itemsPerPage: 9,
+      itemsPerPage: 6,
       pathPrefix: `category/${slug}`,
       component: categoryTemplate,
       context: { slug: slug, category: category.fieldValue },

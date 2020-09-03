@@ -3,7 +3,7 @@
     text-transform: uppercase;
     letter-spacing: 3px;
     text-align: center;
-    margin: 5px 0;
+    margin: 5px 0 10px 0;
     color: darkgrey;
     font-size: 16px;
   }
@@ -23,26 +23,8 @@
 
   .recent__post {
     margin-bottom: 15px;
-    .recent__post-link {
-      text-align: right;
-      a {
-        display: block;
-        background-color: $black;
-        font-size: 12px;
-        color: $white;
-        padding: 10px;
-        text-decoration: none;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        svg {
-          font-size: 18px;
-          position: relative;
-          top: 1px;
-        }
-      }
-    }
   }
   .recent__post:last-child {
-    margin-bottom: 0;
+    margin-bottom: 15px;
   }
 }

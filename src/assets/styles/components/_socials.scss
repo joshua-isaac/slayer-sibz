@@ -1,11 +1,30 @@
+.mobile__social-title {
+  margin-top: 40px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  margin-bottom: 8px;
+  font-size: 16px;
+  display: none;
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
 .socials__container {
   margin-top: 54px;
+  @media (max-width: 768px) {
+    display: flex;
+    margin-top: 0;
+  }
   .title {
     text-transform: uppercase;
     letter-spacing: 1.5px;
     text-align: center;
     margin-bottom: 8px;
     font-size: 14px;
+    @media (max-width: 768px) {
+      display: none;
+    }
   }
 
   .instagram,
@@ -17,7 +36,7 @@
     display: block;
     border: 1px solid $black;
     color: $black;
-    padding: 8px;
+    padding: 10px;
     font-size: 10px;
     text-align: center;
     text-decoration: none;
@@ -35,8 +54,29 @@
     span {
       text-transform: uppercase;
     }
+    @media (max-width: 768px) {
+      display: block;
+      flex: 1;
+      height: 40px;
+      margin: 0 8px;
+      span {
+        display: none;
+      }
+      svg {
+        top: 0;
+        font-size: 16px;
+      }
+    }
+  }
+  .instagram {
+    @media (max-width: 768px) {
+      margin-left: 0;
+    }
   }
   .tumblr {
     margin-bottom: 0;
+    @media (max-width: 768px) {
+      margin-right: 0;
+    }
   }
 }

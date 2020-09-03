@@ -48,8 +48,8 @@ export const query = graphql`
 `
 
 const CategoryTemplate = ({ data, pageContext }) => {
-  // const category_slug = data.allWpCategory.edges[0].node.slug
-  console.log(data)
+  // // const category_slug = data.allWpCategory.edges[0].node.slug
+  // console.log(data)
   console.log(pageContext)
   const posts = data.allWpPost.edges
 

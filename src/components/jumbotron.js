@@ -1,20 +1,35 @@
 import React from "react"
 import BackgroundImage from "gatsby-background-image"
+import { Link } from "gatsby"
+import { BsArrowRight } from "react-icons/bs"
 
 const Jumbotron = ({ featuredPost }) => {
   console.log(featuredPost)
   return (
     <div className="featured__article">
-      <BackgroundImage
-        fluid={featuredPost.featuredImage.node.localFile.childImageSharp.fluid}
-        className="featured__article-image"
+      <Link
+        to={`/${featuredPost.categories.nodes[0].slug}/${featuredPost.slug}`}
       >
-        <div className="overlay">
-          <div className="overlay__content">
-            <h3>{featuredPost.title}</h3>
+        <BackgroundImage
+          fluid={
+            featuredPost.featuredImage.node.localFile.childImageSharp.fluid
+          }
+          className="featured__article-image"
+        >
+          <div className="overlay">
+            <div className="overlay__content">
+              <h3>{featuredPost.title}</h3>
+            </div>
           </div>
-        </div>
-      </BackgroundImage>
+        </BackgroundImage>
+      </Link>
+      <div class="featured__article-link">
+        <Link
+          to={`/${featuredPost.categories.nodes[0].slug}/${featuredPost.slug}`}
+        >
+          View Post <BsArrowRight />
+        </Link>
+      </div>
     </div>
   )
 }

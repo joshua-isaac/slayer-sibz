@@ -22,13 +22,6 @@ const RecentPosts = () => {
                 }
               />
             </Link>
-            {/* <div className="recent__post-link">
-              <Link
-                to={`/${post.node.categories.nodes[0].slug}/${post.node.slug}`}
-              >
-                View <BsArrowRight />
-              </Link>
-            </div> */}
           </div>
         ))}
       </div>
@@ -47,13 +40,6 @@ const RecentPosts = () => {
                     }
                   />
                 </Link>
-                <div className="recent__post-link">
-                  <Link
-                    to={`/${post.node.categories.nodes[0].slug}/${post.node.slug}`}
-                  >
-                    Read More <BsArrowRight />
-                  </Link>
-                </div>
               </div>
             </Col>
           ))}

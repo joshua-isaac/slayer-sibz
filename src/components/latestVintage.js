@@ -18,7 +18,7 @@ const LatestVintage = ({ articles }) => {
         <>
           <Row>
             {articles.map((article, i) => (
-              <Col lg={4} md={6} sm={6} key={i}>
+              <Col lg={6} md={6} sm={6} key={i}>
                 <ArticleCard
                   image={
                     article.node.featuredImage.node.localFile.childImageSharp
