@@ -10,6 +10,11 @@ const RecentPosts = () => {
   return (
     <div className="recent__posts-container">
       <h5 className="recent__posts-title">Recent Posts</h5>
+      <div className="recent__posts-mobile-title">
+        <div className="line"></div>
+        <h5>Recent Posts</h5>
+        <div className="line"></div>
+      </div>
       <div className="recent__posts-wrapper">
         {posts.map((post, i) => (
           <div className="recent__post" key={i}>

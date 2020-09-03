@@ -1,18 +1,17 @@
 .mobile__social-title {
-  margin-top: 40px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
   text-align: center;
   margin-bottom: 8px;
   font-size: 16px;
   display: none;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     display: block;
   }
 }
 .socials__container {
   margin-top: 54px;
-  @media (max-width: 768px) {
+  @media (max-width: 767px) {
     display: flex;
     margin-top: 0;
   }
@@ -22,7 +21,7 @@
     text-align: center;
     margin-bottom: 8px;
     font-size: 14px;
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       display: none;
     }
   }
@@ -50,11 +49,14 @@
       position: relative;
       top: -1px;
       margin-right: 5px;
+      @media (max-width: 767px) {
+        margin: 0;
+      }
     }
     span {
       text-transform: uppercase;
     }
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       display: block;
       flex: 1;
       height: 40px;
@@ -69,13 +71,13 @@
     }
   }
   .instagram {
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       margin-left: 0;
     }
   }
   .tumblr {
     margin-bottom: 0;
-    @media (max-width: 768px) {
+    @media (max-width: 767px) {
       margin-right: 0;
     }
   }

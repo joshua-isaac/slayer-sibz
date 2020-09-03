@@ -6,6 +6,8 @@ import Img from "gatsby-image"
 import RecentPosts from "../components/recentPosts"
 import Socials from "../components/socials"
 import ShopDepop from "../components/shopDepop"
+import HyvorTalk from "hyvor-talk-react"
+
 import {
   FacebookShareButton,
   FacebookIcon,
@@ -104,32 +106,35 @@ const SinglePostTemplate = ({ data }) => {
               )}
               <div className="single__post-content">
                 <div dangerouslySetInnerHTML={{ __html: post.content }} />
-              </div>
-              {/* <div className="single__post-share">
-                <div className="single__post-share-container">
-                  <FacebookShareButton
-                    url={`www.slayersibz.com/${post.categories.nodes[0].slug}/${post.slug}`}
-                    quote={`${post.title}`}
-                    hashtag={`${post.categories.nodes[0].slug}`}
-                  >
-                    <FacebookIcon size="1.5rem" />
-                  </FacebookShareButton>
-                  <TwitterShareButton
-                    url={`www.slayersibz.com/${post.categories.nodes[0].slug}/${post.slug}`}
-                    title={`${post.title}`}
-                  >
-                    <TwitterIcon size="1.5rem" />
-                  </TwitterShareButton>
-                  <PinterestShareButton
-                    media={`${post.featuredImage.node.mediaUrl}`}
-                    url={`www.slayersibz.com/${post.categories.nodes[0].slug}/${post.slug}`}
-                    description={post.title}
-                  >
-                    <PinterestIcon size="1.5rem" />
-                  </PinterestShareButton>
+                <div className="single__post-share">
+                  <div className="single__post-share-container">
+                    <FacebookShareButton
+                      url={`www.slayersibz.com/${post.categories.nodes[0].slug}/${post.slug}`}
+                      quote={`${post.title}`}
+                      hashtag={`${post.categories.nodes[0].slug}`}
+                    >
+                      <FacebookIcon size="2rem" />
+                    </FacebookShareButton>
+                    <TwitterShareButton
+                      url={`www.slayersibz.com/${post.categories.nodes[0].slug}/${post.slug}`}
+                      title={`${post.title}`}
+                    >
+                      <TwitterIcon size="2rem" />
+                    </TwitterShareButton>
+                    <PinterestShareButton
+                      media={`${post.featuredImage.node.mediaUrl}`}
+                      url={`www.slayersibz.com/${post.categories.nodes[0].slug}/${post.slug}`}
+                      description={post.title}
+                    >
+                      <PinterestIcon size="2rem" />
+                    </PinterestShareButton>
+                  </div>
+                  <h5>Share This Post</h5>
                 </div>
-                <h5>Share</h5>
-              </div> */}
+              </div>
+              <div className="single__post-comments">
+                <HyvorTalk.Embed websiteId={1870} />
+              </div>
             </Col>
             <Col lg={3} md={3}>
               <div className="single__post-sidebar">

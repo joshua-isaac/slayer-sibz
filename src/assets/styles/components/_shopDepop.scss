@@ -2,6 +2,9 @@
   text-align: center;
   margin-bottom: 15px;
   margin: 24px 0;
+  @media (max-width: 767px) {
+    margin-bottom: 80px;
+  }
   a {
     background-color: $black;
     border: 1px solid $black;
