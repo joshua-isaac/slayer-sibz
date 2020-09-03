@@ -26,11 +26,6 @@ const Socials = () => {
             <FaTwitter /> <span>Twitter</span>
           </a>
         )}
-        {data.site.siteMetadata.facebook && (
-          <a className="facebook" href={data.site.siteMetadata.facebook}>
-            <FaFacebookF /> <span>Facebook</span>
-          </a>
-        )}
         {data.site.siteMetadata.pinterest && (
           <a className="pinterest" href={data.site.siteMetadata.pinterest}>
             <FaPinterestP /> <span>Pinterest</span>
@@ -50,7 +45,6 @@ const SOCIALS_QUERY = graphql`
   query {
     site {
       siteMetadata {
-        facebook
         instagram
         pinterest
         title

@@ -7,6 +7,11 @@ html {
   font-size: 17px;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
 *,
 *:before,
 *:after {
@@ -86,4 +91,9 @@ img {
   main {
     flex: 1 0 auto;
   }
+}
+
+body.fixed,
+html.fixed {
+  overflow: hidden !important;
 }

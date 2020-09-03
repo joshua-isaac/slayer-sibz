@@ -23,7 +23,7 @@ const Jumbotron = ({ featuredPost }) => {
           </div>
         </BackgroundImage>
       </Link>
-      <div class="featured__article-link">
+      <div className="featured__article-link">
         <Link
           to={`/${featuredPost.categories.nodes[0].slug}/${featuredPost.slug}`}
         >

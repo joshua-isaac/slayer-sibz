@@ -23,18 +23,6 @@ const Contact = () => {
                   </a>
                 </p>
               )}
-              {data.socials.siteMetadata.facebook && (
-                <p>
-                  Facebook:{" "}
-                  <a
-                    href={data.socials.siteMetadata.facebook}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {data.socials.siteMetadata.facebook}
-                  </a>
-                </p>
-              )}
               {data.socials.siteMetadata.twitter && (
                 <p>
                   Twitter:{" "}
@@ -88,7 +76,6 @@ export const CONTACT_QUERY = graphql`
     }
     socials: site {
       siteMetadata {
-        facebook
         instagram
         pinterest
         title
