@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -11,17 +11,16 @@ import Jumbotron from "../components/jumbotron"
 import SplashScreen from "../components/splashScreen"
 
 const IndexPage = () => {
-  // get home page data
   const data = useStaticQuery(HOME_QUERY)
 
-  // set up new cookies
+  const [visited, setVisited] = useState("")
+
   const cookies = new Cookies()
 
-  // check if we have a visited cookie
-  const cookie = cookies.get("visited")
-
   useEffect(() => {
+    const cookie = cookies.get("visited")
     if (!cookie) {
+      setVisited(true)
       document.querySelector("body").classList.add("fixed")
       document.querySelector("html").classList.add("fixed")
       cookies.set("visited")
@@ -32,7 +31,7 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       {/* conditionally render splash screen if there's no visited cookie */}
-      {cookie ? null : <SplashScreen />}
+      {visited ? <SplashScreen /> : null}
       <section className="home__articles">
         <div className="main-wrapper">
           <Jumbotron featuredPost={data.featuredPost.Home_ACF.featuredPost} />
