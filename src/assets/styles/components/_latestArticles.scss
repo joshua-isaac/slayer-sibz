@@ -1,15 +1,11 @@
 .latest__articles {
   margin-bottom: 80px;
-  .col-lg-4:first-child {
+  .col-lg-6:first-child {
     @media (max-width: 575px) {
       margin-bottom: 30px;
     }
   }
-  .col-lg-4:last-child {
-    @media (max-width: 768px) {
-      display: none;
-    }
-  }
+
   .article__card {
     transition: 0.3s ease;
     &:hover {

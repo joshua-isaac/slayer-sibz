@@ -20,7 +20,7 @@ const InstagramBlock = () => {
     autoplaySpeed: 3000,
     responsive: [
       {
-        breakpoint: 575,
+        breakpoint: 576,
         settings: {
           slidesToShow: 3,
         },
@@ -64,6 +64,7 @@ const InstagramBlock = () => {
               href="https://www.instagram.com/sibelrafailov/"
               target="_blank"
               rel="noreferrer noopener"
+              aria-label="Instagram Image"
             >
               Follow Me
               <BsArrowRight />

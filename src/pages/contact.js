@@ -1,11 +1,13 @@
 import React from "react"
 import Layout from "../components/layout"
 import { useStaticQuery, graphql } from "gatsby"
+import SEO from "../components/seo"
 
 const Contact = () => {
   const data = useStaticQuery(CONTACT_QUERY)
   return (
     <Layout>
+      <SEO title="Contact" />
       <div className="contact__container">
         <div class="main-wrapper">
           <div class="contact__content">

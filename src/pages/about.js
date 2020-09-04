@@ -2,12 +2,14 @@ import React from "react"
 import Layout from "../components/layout"
 import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
+import SEO from "../components/seo"
 
 const About = () => {
   const data = useStaticQuery(ABOUT_QUERY)
-  console.log(data)
+
   return (
     <Layout>
+      <SEO title="About" />
       <div className="about__container">
         <div className="main-wrapper">
           <div className="about__image">

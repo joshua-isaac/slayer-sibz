@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { motion, useCycle } from "framer-motion"
-import { FaBars } from "react-icons/fa"
 
 const Header = () => {
   // get data for header
@@ -68,7 +67,11 @@ const Header = () => {
                 {rightNavItems.map((rightNavItem, i) => (
                   <li key={i}>
                     {rightNavItem.target ? (
-                      <a href={rightNavItem.url} target={rightNavItem.target}>
+                      <a
+                        href={rightNavItem.url}
+                        target={rightNavItem.target}
+                        rel="noopener noreferrer"
+                      >
                         {rightNavItem.label}
                       </a>
                     ) : (
@@ -85,6 +88,7 @@ const Header = () => {
               className="header__mobile-toggle"
             >
               <motion.button
+                aria-label="Menu Button"
                 onClick={() => {
                   setOpen()
                   document.querySelector("body").classList.toggle("fixed")

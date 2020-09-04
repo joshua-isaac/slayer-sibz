@@ -6,7 +6,6 @@ import { BsArrowRight } from "react-icons/bs"
 import ArticleCard from "../components/articleCard"
 
 const LatestOutfits = ({ articles }) => {
-  console.log(articles)
   return (
     <div className="latest__articles outfits">
       <div className="article__title">

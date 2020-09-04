@@ -6,7 +6,7 @@ import { BsArrowDown } from "react-icons/bs"
 
 const Socials = () => {
   const data = useStaticQuery(SOCIALS_QUERY)
-  console.log(data)
+
   return (
     <>
       <p className="mobile__social-title">

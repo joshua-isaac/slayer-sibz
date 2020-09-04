@@ -6,6 +6,7 @@ import Img from "gatsby-image"
 import RecentPosts from "../components/recentPosts"
 import Socials from "../components/socials"
 import ShopDepop from "../components/shopDepop"
+import SEO from "../components/seo"
 import HyvorTalk from "hyvor-talk-react"
 
 import {
@@ -70,11 +71,11 @@ export const query = graphql`
 `
 
 const SinglePostTemplate = ({ data }) => {
-  console.log(data)
   const post = data.wpPost
-  console.log(FacebookShareButton)
+
   return (
     <Layout>
+      <SEO title={post.title} />
       <div className="single__post-container">
         <div className="main-wrapper">
           <Row>

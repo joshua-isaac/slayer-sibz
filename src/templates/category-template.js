@@ -5,6 +5,7 @@ import { Row, Col } from "react-bootstrap"
 import BackgroundImage from "gatsby-background-image"
 import ArticleCard from "../components/articleCard"
 import Pager from "../components/pager"
+import SEO from "../components/seo"
 
 export const query = graphql`
   query($slug: String!, $skip: Int!, $limit: Int!) {
@@ -48,13 +49,11 @@ export const query = graphql`
 `
 
 const CategoryTemplate = ({ data, pageContext }) => {
-  // // const category_slug = data.allWpCategory.edges[0].node.slug
-  // console.log(data)
-  console.log(pageContext)
   const posts = data.allWpPost.edges
 
   return (
     <Layout>
+      <SEO title={pageContext.category} />
       <div className="category__container">
         <div className="main-wrapper">
           <div className="title">

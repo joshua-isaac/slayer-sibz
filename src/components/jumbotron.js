@@ -4,7 +4,6 @@ import { Link } from "gatsby"
 import { BsArrowRight } from "react-icons/bs"
 
 const Jumbotron = ({ featuredPost }) => {
-  console.log(featuredPost)
   return (
     <div className="featured__article">
       <Link

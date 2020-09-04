@@ -1,6 +1,7 @@
 import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 import LatestLifestyle from "../components/latestLifestyle"
 import LatestOutfits from "../components/latestOutfits"
@@ -9,10 +10,10 @@ import Jumbotron from "../components/jumbotron"
 
 const IndexPage = () => {
   const data = useStaticQuery(HOME_QUERY)
-  console.log(data)
 
   return (
     <Layout>
+      <SEO title="Home" />
       <section className="home__articles">
         <div className="main-wrapper">
           <Jumbotron featuredPost={data.featuredPost.Home_ACF.featuredPost} />
