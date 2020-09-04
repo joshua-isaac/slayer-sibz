@@ -12,6 +12,10 @@
     .contact__socials {
       margin-top: 40px;
       text-align: center;
+      transition: 0.3s ease;
+      @media (max-width: 575px) {
+        font-size: 14px;
+      }
       p {
         margin-bottom: 8px;
         letter-spacing: 1px;

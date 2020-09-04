@@ -25,6 +25,12 @@ const InstagramBlock = () => {
           slidesToShow: 3,
         },
       },
+      {
+        breakpoint: 426,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
     ],
   }
   return (
