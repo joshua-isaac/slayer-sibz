@@ -275,21 +275,21 @@ const Header = () => {
               <ul>
                 {socials.instagram && (
                   <li>
-                    <a href={socials.instagram}>
+                    <a href={socials.instagram} aria-label="Instagram">
                       <GrInstagram />
                     </a>
                   </li>
                 )}
                 {socials.twitter && (
                   <li>
-                    <a href={socials.twitter}>
+                    <a href={socials.twitter} aria-label="Twitter">
                       <FaTwitter />
                     </a>
                   </li>
                 )}
                 {socials.pinterest && (
                   <li>
-                    <a href={socials.pinterest}>
+                    <a href={socials.pinterest} aria-label="Pinterest">
                       <FaPinterestP />
                     </a>
                   </li>
