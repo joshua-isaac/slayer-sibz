@@ -231,7 +231,11 @@ const Header = () => {
                 }}
               >
                 {rightNavItem.target ? (
-                  <a href={rightNavItem.url} target={rightNavItem.target}>
+                  <a
+                    href={rightNavItem.url}
+                    target={rightNavItem.target}
+                    rel="noopener noreferrer"
+                  >
                     {rightNavItem.label}
                   </a>
                 ) : (

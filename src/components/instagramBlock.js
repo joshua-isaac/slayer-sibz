@@ -54,6 +54,7 @@ const InstagramBlock = () => {
                 target="_blank"
                 rel="noreferrer noopener"
                 key={i}
+                aria-label="Instagram Image"
               >
                 <Img fluid={image.node.localFile.childImageSharp.fluid} />
               </a>
@@ -64,7 +65,6 @@ const InstagramBlock = () => {
               href="https://www.instagram.com/sibelrafailov/"
               target="_blank"
               rel="noreferrer noopener"
-              aria-label="Instagram Image"
             >
               Follow Me
               <BsArrowRight />
