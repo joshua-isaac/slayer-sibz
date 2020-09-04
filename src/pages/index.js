@@ -20,6 +20,10 @@ const IndexPage = () => {
   // check if we have a visited cookie
   const cookie = cookies.get("visited")
 
+  const isSSR = typeof window === "undefined"
+
+  console.log(isSSR)
+
   useEffect(() => {
     if (!cookie) {
       document.querySelector("body").classList.add("fixed")
@@ -32,7 +36,7 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       {/* conditionally render splash screen if there's no visited cookie */}
-      {cookie ? null : <SplashScreen />}
+      {cookie || isSSR ? null : <SplashScreen />}
       <section className="home__articles">
         <div className="main-wrapper">
           <Jumbotron featuredPost={data.featuredPost.Home_ACF.featuredPost} />
