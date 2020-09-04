@@ -1,6 +1,8 @@
 import React, { useState } from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { motion, useCycle } from "framer-motion"
+import { FaTwitter, FaPinterestP, FaTumblr } from "react-icons/fa"
+import { GrInstagram } from "react-icons/gr"
 
 const Header = () => {
   // get data for header
@@ -9,6 +11,9 @@ const Header = () => {
   // menus
   const leftNavItems = data.leftNav.menuItems.nodes
   const rightNavItems = data.rightNav.menuItems.nodes
+
+  //socials
+  const socials = data.socials.siteMetadata
 
   // set up menu state cycle
   const [open, setOpen] = useCycle(false, true)
@@ -253,6 +258,51 @@ const Header = () => {
                 )}
               </motion.li>
             ))}
+            <motion.li
+              variants={{
+                closed: {
+                  x: 100,
+                  opacity: 0,
+                  transition: { delay: 0.3, duration: 0.3 },
+                },
+                open: {
+                  x: 0,
+                  opacity: 1,
+                  transition: { delay: 0.3, duration: 0.8 },
+                },
+              }}
+            >
+              <ul>
+                {socials.instagram && (
+                  <li>
+                    <a href={socials.instagram}>
+                      <GrInstagram />
+                    </a>
+                  </li>
+                )}
+                {socials.twitter && (
+                  <li>
+                    <a href={socials.twitter}>
+                      <FaTwitter />
+                    </a>
+                  </li>
+                )}
+                {socials.pinterest && (
+                  <li>
+                    <a href={socials.pinterest}>
+                      <FaPinterestP />
+                    </a>
+                  </li>
+                )}
+                {socials.tumblr && (
+                  <li>
+                    <a href={socials.tumblr}>
+                      <FaTumblr />
+                    </a>
+                  </li>
+                )}
+              </ul>
+            </motion.li>
           </motion.ul>
         </motion.div>
       </header>
@@ -264,6 +314,15 @@ export default Header
 
 export const HEADER_QUERY = graphql`
   query {
+    socials: site {
+      siteMetadata {
+        instagram
+        pinterest
+        title
+        tumblr
+        twitter
+      }
+    }
     leftNav: wpMenu(slug: { eq: "left-nav" }) {
       menuItems {
         nodes {

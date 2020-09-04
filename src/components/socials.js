@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { FaFacebookF, FaTwitter, FaPinterestP, FaTumblr } from "react-icons/fa"
+import { FaTwitter, FaPinterestP, FaTumblr } from "react-icons/fa"
 import { GrInstagram } from "react-icons/gr"
 import { BsArrowDown } from "react-icons/bs"
 
