@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import SEO from "../components/seo"
 
 const About = () => {
+  // get about page data
   const data = useStaticQuery(ABOUT_QUERY)
 
   return (

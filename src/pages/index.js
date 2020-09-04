@@ -2,18 +2,36 @@ import React from "react"
 import { graphql, Link, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Cookies from "universal-cookie"
 
 import LatestLifestyle from "../components/latestLifestyle"
 import LatestOutfits from "../components/latestOutfits"
 import LatestVintage from "../components/latestVintage"
 import Jumbotron from "../components/jumbotron"
+import SplashScreen from "../components/splashScreen"
 
 const IndexPage = () => {
+  // get home page data
   const data = useStaticQuery(HOME_QUERY)
+
+  // set up new cookies
+  const cookies = new Cookies()
+
+  // check if we have a visited cookie
+  const cookie = cookies.get("visited")
+
+  // if theres no visited cookie, set one and remove the fixed classes
+  if (!cookie) {
+    document.querySelector("body").classList.add("fixed")
+    document.querySelector("html").classList.add("fixed")
+    cookies.set("visited")
+  }
 
   return (
     <Layout>
       <SEO title="Home" />
+      {/* conditionally render splash screen if there's no visited cookie */}
+      {cookie ? null : <SplashScreen />}
       <section className="home__articles">
         <div className="main-wrapper">
           <Jumbotron featuredPost={data.featuredPost.Home_ACF.featuredPost} />

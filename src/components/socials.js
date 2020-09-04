@@ -5,6 +5,7 @@ import { GrInstagram } from "react-icons/gr"
 import { BsArrowDown } from "react-icons/bs"
 
 const Socials = () => {
+  // get socials data
   const data = useStaticQuery(SOCIALS_QUERY)
 
   return (

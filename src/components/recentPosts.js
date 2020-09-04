@@ -5,7 +5,9 @@ import { Row, Col } from "react-bootstrap"
 import { BsArrowRight } from "react-icons/bs"
 
 const RecentPosts = () => {
+  // get recent posts data
   const data = useStaticQuery(RECENT_POSTS_QUERY)
+  // set posts
   const posts = data.allWpPost.edges
   return (
     <div className="recent__posts-container">

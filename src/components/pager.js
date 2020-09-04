@@ -3,6 +3,7 @@ import { Link } from "gatsby"
 import { BsArrowRight, BsArrowLeft } from "react-icons/bs"
 
 const Pager = ({ pageContext }) => {
+  // get page context
   const { previousPagePath, nextPagePath } = pageContext
   return (
     <div className="pager">

@@ -4,6 +4,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import SEO from "../components/seo"
 
 const Contact = () => {
+  // get contact page data
   const data = useStaticQuery(CONTACT_QUERY)
   return (
     <Layout>

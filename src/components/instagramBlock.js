@@ -8,9 +8,16 @@ import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
 
 const InstagramBlock = () => {
+  // get instagram data
   const data = useStaticQuery(INSTAGRAM_QUERY)
+
+  // get images
   const images = data.allInstaNode.edges
+
+  // set base instagram url
   const baseUrl = `https://www.instagram.com/p`
+
+  // set settings for slick slider
   const settings = {
     arrows: false,
     dots: false,
