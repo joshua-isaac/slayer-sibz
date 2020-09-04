@@ -20,10 +20,10 @@ const IndexPage = () => {
   useEffect(() => {
     const cookie = cookies.get("visited")
     if (!cookie) {
+      cookies.set("visited")
       setVisited(true)
       document.querySelector("body").classList.add("fixed")
       document.querySelector("html").classList.add("fixed")
-      cookies.set("visited")
     }
   }, [])
 
