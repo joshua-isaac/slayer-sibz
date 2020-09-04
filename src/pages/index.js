@@ -13,15 +13,15 @@ import SplashScreen from "../components/splashScreen"
 const IndexPage = () => {
   const data = useStaticQuery(HOME_QUERY)
 
-  const [visited, setVisited] = useState(false)
-
   const cookies = new Cookies()
 
+  let cookie
+
   useEffect(() => {
-    const cookie = cookies.get("visited")
+    let cookie = cookies.get("visited")
     if (!cookie) {
       cookies.set("visited")
-      setVisited(true)
+
       document.querySelector("body").classList.add("fixed")
       document.querySelector("html").classList.add("fixed")
     }
@@ -31,7 +31,7 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       {/* conditionally render splash screen if there's no visited cookie */}
-      {visited ? <SplashScreen /> : null}
+      {cookie ? <SplashScreen /> : null}
       <section className="home__articles">
         <div className="main-wrapper">
           <Jumbotron featuredPost={data.featuredPost.Home_ACF.featuredPost} />
