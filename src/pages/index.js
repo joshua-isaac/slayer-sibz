@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
@@ -20,12 +20,13 @@ const IndexPage = () => {
   // check if we have a visited cookie
   const cookie = cookies.get("visited")
 
-  // if theres no visited cookie, set one and add the fixed classes
-  if (!cookie) {
-    // document.querySelector("body").classList.add("fixed")
-    // document.querySelector("html").classList.add("fixed")
-    cookies.set("visited")
-  }
+  useEffect(() => {
+    if (!cookie) {
+      document.querySelector("body").classList.add("fixed")
+      document.querySelector("html").classList.add("fixed")
+      cookies.set("visited")
+    }
+  }, [])
 
   return (
     <Layout>

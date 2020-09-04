@@ -296,7 +296,7 @@ const Header = () => {
                 )}
                 {socials.tumblr && (
                   <li>
-                    <a href={socials.tumblr}>
+                    <a href={socials.tumblr} aria-label="Tumblr">
                       <FaTumblr />
                     </a>
                   </li>
