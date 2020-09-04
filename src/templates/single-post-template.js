@@ -37,13 +37,7 @@ export const query = graphql`
           localFile {
             publicURL
             childImageSharp {
-              fluid(
-                cropFocus: CENTER
-                fit: COVER
-                quality: 90
-                maxWidth: 1000
-                maxHeight: 1000
-              ) {
+              fluid(cropFocus: CENTER, fit: COVER, quality: 90) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }
@@ -54,13 +48,7 @@ export const query = graphql`
         gallery {
           localFile {
             childImageSharp {
-              fluid(
-                cropFocus: CENTER
-                fit: COVER
-                quality: 90
-                maxWidth: 1000
-                maxHeight: 1000
-              ) {
+              fluid(cropFocus: CENTER, fit: COVER, quality: 90) {
                 ...GatsbyImageSharpFluid_withWebp
               }
             }

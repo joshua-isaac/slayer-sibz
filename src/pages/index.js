@@ -14,29 +14,28 @@ const IndexPage = () => {
   // get home page data
   const data = useStaticQuery(HOME_QUERY)
 
-  // set up new cookies
-  const cookies = new Cookies()
+  // // set up new cookies
+  // const cookies = new Cookies()
 
-  // check if we have a visited cookie
-  const cookie = cookies.get("visited")
+  // // check if we have a visited cookie
+  // const cookie = cookies.get("visited")
 
-  const isSSR = typeof window === "undefined"
+  // const isSSR = typeof window === "undefined"
 
-  console.log(isSSR)
+  // console.log(isSSR)
 
-  useEffect(() => {
-    if (!cookie) {
-      document.querySelector("body").classList.add("fixed")
-      document.querySelector("html").classList.add("fixed")
-      cookies.set("visited")
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (!cookie) {
+  //     document.querySelector("body").classList.add("fixed")
+  //     document.querySelector("html").classList.add("fixed")
+  //     cookies.set("visited")
+  //   }
+  // }, [])
 
   return (
     <Layout>
       <SEO title="Home" />
-      {/* conditionally render splash screen if there's no visited cookie */}
-      {cookie || isSSR ? null : <SplashScreen />}
+      {/* {cookie || isSSR ? null : <SplashScreen />} */}
       <section className="home__articles">
         <div className="main-wrapper">
           <Jumbotron featuredPost={data.featuredPost.Home_ACF.featuredPost} />
