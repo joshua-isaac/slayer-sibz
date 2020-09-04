@@ -13,7 +13,7 @@ const SplashScreen = () => {
         variants={{
           closed: {
             display: "none",
-            opaicty: 0,
+            opacity: 0,
             transition: {
               delay: 0.3,
             },

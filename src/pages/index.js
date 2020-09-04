@@ -13,7 +13,7 @@ import SplashScreen from "../components/splashScreen"
 const IndexPage = () => {
   const data = useStaticQuery(HOME_QUERY)
 
-  const [visited, setVisited] = useState("")
+  const [visited, setVisited] = useState(false)
 
   const cookies = new Cookies()
 
