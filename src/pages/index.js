@@ -1,5 +1,5 @@
 import React from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Cookies from "universal-cookie"
@@ -20,10 +20,10 @@ const IndexPage = () => {
   // check if we have a visited cookie
   const cookie = cookies.get("visited")
 
-  // if theres no visited cookie, set one and remove the fixed classes
+  // if theres no visited cookie, set one and add the fixed classes
   if (!cookie) {
-    document.querySelector("body").classList.add("fixed")
-    document.querySelector("html").classList.add("fixed")
+    // document.querySelector("body").classList.add("fixed")
+    // document.querySelector("html").classList.add("fixed")
     cookies.set("visited")
   }
 
