@@ -35,6 +35,7 @@ export const query = graphql`
         node {
           mediaItemUrl
           localFile {
+            publicURL
             childImageSharp {
               fluid(
                 cropFocus: CENTER
@@ -75,7 +76,10 @@ const SinglePostTemplate = ({ data }) => {
 
   return (
     <Layout>
-      <SEO title={post.title} />
+      <SEO
+        title={post.title}
+        image={post.featuredImage.node.localFile.publicURL}
+      />
       <div className="single__post-container">
         <div className="main-wrapper">
           <Row>
