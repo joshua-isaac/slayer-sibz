@@ -1,7 +1,6 @@
 import React from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { Link } from "gatsby"
 import { Row, Col } from "react-bootstrap"
-import Img from "gatsby-image"
 import { BsArrowRight } from "react-icons/bs"
 import ArticleCard from "../components/articleCard"
 

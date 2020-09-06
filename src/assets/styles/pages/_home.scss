@@ -20,7 +20,10 @@
         height: 100%;
         background-color: rgba(0, 0, 0, 0.45);
         .overlay__content {
-          padding: 60px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100%;
           transition: 0.3s ease;
           @media (max-width: 575px) {
             padding: 60px 30px;
@@ -30,7 +33,7 @@
           }
           h3 {
             color: $white;
-            letter-spacing: 1.5px;
+            letter-spacing: 3px;
             text-transform: uppercase;
             @media (max-width: 575px) {
               font-size: 24px;

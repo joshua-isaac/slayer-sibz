@@ -1,8 +1,6 @@
 import React from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import { Row, Col } from "react-bootstrap"
 import Img from "gatsby-image"
-import { BsArrowRight } from "react-icons/bs"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css"
 import "slick-carousel/slick/slick-theme.css"
@@ -59,31 +57,19 @@ const InstagramBlock = () => {
         </p>
       </div>
       <div className="instagram__block-images">
-        <div className="main-wrapper">
-          <Slider {...settings} className="slider">
-            {images.map((image, i) => (
-              <a
-                href={`${baseUrl}/${image.node.id}`}
-                target="_blank"
-                rel="noreferrer noopener"
-                key={i}
-                aria-label="Instagram Image"
-              >
-                <Img fluid={image.node.localFile.childImageSharp.fluid} />
-              </a>
-            ))}
-          </Slider>
-          <div className="instagram__block-btn">
+        <Slider {...settings} className="slider">
+          {images.map((image, i) => (
             <a
-              href="https://www.instagram.com/sibelrafailov/"
+              href={`${baseUrl}/${image.node.id}`}
               target="_blank"
               rel="noreferrer noopener"
+              key={i}
+              aria-label="Instagram Image"
             >
-              Follow Me
-              <BsArrowRight />
+              <Img fluid={image.node.localFile.childImageSharp.fluid} />
             </a>
-          </div>
-        </div>
+          ))}
+        </Slider>
       </div>
     </div>
   )

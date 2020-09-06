@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
 import { motion, useCycle } from "framer-motion"
 import { FaTwitter, FaPinterestP, FaTumblr } from "react-icons/fa"
